@@ -71,3 +71,47 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](LICENSE).
+
+## .env
+
+DATABASE_URL="postgresql://postgres:postgres@localhost:5434/nest?schema=public"
+JWT_SECRET="super-secret"
+
+## .env.test
+
+DATABASE_URL="postgresql://postgres:postgres@localhost:5435/nest_test?schema=public"
+JWT_SECRET="super-secret"
+
+## .eslintrc
+module.exports = {
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: 'tsconfig.json',
+    tsconfigRootDir : __dirname, 
+    sourceType: 'module',
+  },
+  plugins: ['@typescript-eslint/eslint-plugin'],
+  extends: [
+    'plugin:@typescript-eslint/recommended',
+    'plugin:prettier/recommended',
+  ],
+  root: true,
+  env: {
+    node: true,
+    jest: true,
+  },
+  ignorePatterns: ['.eslintrc.js'],
+  rules: {
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+  },
+};
+
+## .prettierrc
+
+{
+  "singleQuote": true,
+  "trailingComma": "all"
+}
